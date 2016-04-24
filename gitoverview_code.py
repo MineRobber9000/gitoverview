@@ -11,7 +11,7 @@ def getLogs(repo):
 	temp = list(chunks(list_log,4))
 	return temp
 
-def generate(path):
+def generateHTML(path):
 	repo = git.Repo(path);
 	log = getLogs(repo)
 	page = "";
@@ -21,4 +21,16 @@ def generate(path):
 		page += i[2]+"<br>"
 		page += i[3]+"<br>"
 		page += "<br>"
+	return page
+
+def generateMarkdown(path):
+	repo = git.Repo(path);
+	log = getLogs(repo)
+	page = "# Commits for "+path+"\n";
+	for i in reversed(log):
+		page += i[0]+"  \n"
+		page += i[1]+"  \n"
+		page += i[2]+"  \n"
+		page += i[3]+"  \n"
+		page += "\n"
 	return page
