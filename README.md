@@ -1,6 +1,8 @@
 # gitoverview
 A Python module for generating commit logs.
 
+Requires [GitPython](https://www.github.com/gitpython-developers/GitPython).
+
 ## How to use
 ```Python
 import gitoverview as go;
